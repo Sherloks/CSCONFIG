@@ -1,0 +1,49 @@
+﻿@model Data.Models.AttributeCategory
+
+@{
+    ViewData["Title"] = "Gestion des catégories d'attributs";
+}
+
+<ol class="breadcrumb">
+    <li><a href="#">Administration</a></li>
+    <li><a asp-action="Index">Gestion des catégories d'attributs</a></li>
+    <li class="active">Modifier</li>
+</ol>
+
+<form asp-action="Edit">
+    <div class="row">
+
+        <div class="col-md-10">
+            <h4>Modifier</h4>
+        </div>
+        <div class="col-md-2 text-right">
+            <input type="submit" value="Sauvegarder" class="btn btn-default">
+        </div>
+        <div class="col-md-12">
+            <hr>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+        <input type="hidden" asp-for="ID" />
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

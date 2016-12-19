@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Data.Models.AttributeCategory>
+
+@{
+    ViewData["Title"] = "Gestion des catégories d'attributs";
+}
+<ol class="breadcrumb">
+    <li><a href="#">Administration</a></li>
+    <li class="active">Gestion des catégories d'attributs</li>
+</ol>
+<div class="row">
+
+    <div class="col-md-10">
+        <h4>Gestion des catégories d'attributs</h4>
+    </div>
+    <div class="col-md-2 text-right">
+        <a asp-action="Create" class="btn btn-default">Ajouter</a>
+    </div>
+    <div class="col-md-12">
+        <hr>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col-md-3">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th class="col-md-7">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th class="col-md-2 text-right"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td class="text-right">
+                <a asp-action="Edit" asp-route-id="@item.ID">Modifier</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Supprimer</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,102 @@
+@model Data.Models.Attribute
+
+@{
+    ViewData["Title"] = "Gestion des attributs";
+}
+
+<ol class="breadcrumb">
+    <li><a href="#">Administration</a></li>
+    <li><a asp-action="Index">Gestion des attributs</a></li>
+    <li class="active">Modifier</li>
+</ol>
+
+<form asp-action="Edit">
+
+    <div class="row">
+
+        <div class="col-md-10">
+            <h4>Ajouter</h4>
+        </div>
+        <div class="col-md-2 text-right">
+            <input type="submit" value="Sauvegarder" class="btn btn-default">
+        </div>
+        <div class="col-md-12">
+            <hr>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+       
+        <input type="hidden" asp-for="AttributeId" />
+
+        <div class="col-md-6">
+            <!-- Name -->
+            <div class="form-group">
+                <label asp-for="Name" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Cvar -->
+            <div class="form-group">
+                <label asp-for="CVar" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="CVar" class="form-control" />
+                    <span asp-validation-for="CVar" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Type -->
+            <div class="form-group">
+                <label asp-for="AttributeTypeId" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="AttributeTypeId" class="form-control" asp-items="ViewBag.AttributeTypeId"></select>
+                </div>
+            </div>
+
+            <!-- Category -->
+            <div class="form-group">
+                <label asp-for="AttributeCategoryId" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="AttributeCategoryId" class="form-control" asp-items="ViewBag.AttributeCategoryId"></select>
+                </div>
+            </div>
+
+            <!-- Tooltip -->
+            <div class="form-group">
+                <label asp-for="Tooltip" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <textarea asp-for="Tooltip" rows="5" class="form-control"></textarea>
+                    <span asp-validation-for="Tooltip" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <!-- View -->
+            <div class="form-group">
+                <label asp-for="View" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="View" class="form-control" />
+                    <span asp-validation-for="View" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- View Config -->
+            <div class="form-group">
+                <label asp-for="ViewConfig" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ViewConfig" class="form-control" />
+                    <span asp-validation-for="ViewConfig" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,9 @@
+﻿
+@model Data.Models.ConfigurationAttribute
+
+<div class="form-group">
+    <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Model.Attribute.Tooltip"></span> @Model.Attribute.Name</label>
+    <div class="col-md-7">
+        <input id="@(Model.Attribute.CVar + "-text")" type="text" class="form-control" />
+    </div>
+</div>

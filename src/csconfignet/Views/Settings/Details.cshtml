@@ -1,0 +1,37 @@
+@using csconfignet.Models
+@model csconfignet.Models.Setting
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Setting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameDirectory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GameDirectory)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PreferedLanguage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PreferedLanguage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PreferedTheme)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PreferedTheme)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

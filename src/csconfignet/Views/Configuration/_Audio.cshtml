@@ -1,0 +1,84 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Data.Models
+
+@inject IViewLocalizer Localizer
+
+<div id="audio" class="tab-pane fade">
+
+    <div class="row">
+        <div class="form-horizontal">
+
+
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Music Volume Tooltip"]"></span> @Localizer["Music Volume"]</label>
+                <div class="col-md-6">
+                    <input id="snd_musicvolume-slider" class="form-control" type="range" min="0" max="1.0" step="0.01" />
+                </div>
+                <div class="col-md-1">
+                    <input id="snd_musicvolume-input" class="form-control form-control-inline" type="number" min="0.0" max="1.0" step="0.01" />
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    <label class="col-md-3 control-label">@Localizer["Speaker Config"]</label>
+                    <div class="col-md-7">
+                        <input class="form-control" type="range" min="0" max="255" step="1"/>
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Mix Ahead Tooltip"]"></span> @Localizer["Mix Ahead"]</label>
+                <div class="col-md-6">
+                    <input id="snd_mixahead-slider" class="form-control" type="range" min="0" max="1.0" step="0.01" />
+                </div>
+                <div class="col-md-1">
+                    <input id="snd_mixahead-input" class="form-control form-control-inline" type="number" min="0.0" max="1.0" step="0.01" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Pan Exponent Tooltip"]"></span> @Localizer["Pan Exponent"]</label>
+                <div class="col-md-6">
+                    <input id="snd_headphone_pan_exponent-slider" class="form-control" type="range" min="0" max="100" step="1" />
+                </div>
+                <div class="col-md-1">
+                    <input id="snd_headphone_pan_exponent-input" class="form-control form-control-inline" type="number" min="0" max="100" step="1" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Pan Radial Weight Tooltip"]"></span> @Localizer["Pan Radial Weight"]</label>
+                <div class="col-md-6">
+                    <input id="snd_headphone_pan_radial_weight-slider" class="form-control" type="range" min="0" max="100" step="1" />
+                </div>
+                <div class="col-md-1">
+                    <input id="snd_headphone_pan_radial_weight-input" class="form-control form-control-inline" type="number" min="0" max="100" step="1" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Pan Radial Weight Tooltip"]"></span> @Localizer["Pan Radial Weight"]</label>
+                <div class="col-md-1">
+                    <div class="material-switch form-control-switch">
+                        <input id="someSwitchOptionDefault" name="someSwitchOption001" type="checkbox" />
+                        <label for="someSwitchOptionDefault" class="label-default"></label>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Voice Scale Tooltip"]"></span> @Localizer["Voice Scale"]</label>
+                <div class="col-md-6">
+                    <input id="voice_scale-slider" class="form-control" type="range" min="0" max="1" step="0.01" />
+                </div>
+                <div class="col-md-1">
+                    <input id="voice_scale-input" class="form-control form-control-inline" type="number" min="0" max="1" step="0.01" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+@using csconfignet.Models
+@model csconfignet.Models.Setting
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Setting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameDirectory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GameDirectory)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PreferedLanguage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PreferedLanguage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PreferedTheme)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PreferedTheme)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

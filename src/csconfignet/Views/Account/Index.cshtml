@@ -1,0 +1,98 @@
+﻿@using Web.Models.AccountViewModels
+@using Data.Models
+@model Web.Models.AccountViewModels.IndexViewModel
+@{
+    ViewData["Title"] = "My Account";
+}
+
+<div class="row">
+    <form asp-controller="Account" asp-action="Index" method="post" class="form-horizontal">
+
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <h4>My account</h4>
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" value="Save" class="btn btn-default"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="UserName" class="col-md-4 control-label"></label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">@Model.UserName</p>
+                        <input asp-for="UserName" class="form-control" type="hidden" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PreferedLanguage" class="col-md-4 control-label"></label>
+                    <div class="col-md-6">
+                        <select asp-for="PreferedLanguage" asp-items="Html.GetEnumSelectList<Setting.Language>()" class="form-control"></select>
+                        <span asp-validation-for="PreferedLanguage" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="col-md-4 control-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="Email" class="form-control"/>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GameDirectory" class="col-md-4 control-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="GameDirectory" class="form-control"/>
+                        <span asp-validation-for="GameDirectory" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PreferedTheme" class="col-md-4 control-label"></label>
+                    <div class="col-md-6">
+                        <select asp-for="PreferedTheme" asp-items="Html.GetEnumSelectList<Setting.Theme>()" class="form-control"></select>
+                        <span asp-validation-for="PreferedTheme" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                
+                <div class="form-group">
+                    <label asp-for="OldPassword" class="col-md-4 control-label"></label>
+                    <div class="col-md-6">
+                        <input asp-for="OldPassword" class="form-control" />
+                        <span asp-validation-for="OldPassword" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password" class="col-md-4 control-label"></label>
+                    <div class="col-md-6">
+                        <input asp-for="Password" class="form-control"/>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="col-md-4 control-label"></label>
+                    <div class="col-md-6">
+                        <input asp-for="ConfirmPassword" class="form-control"/>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

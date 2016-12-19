@@ -1,0 +1,70 @@
+@model IEnumerable<Data.Models.Attribute>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<ol class="breadcrumb">
+    <li><a href="#">Administration</a></li>
+    <li class="active">Gestion des attributs</li>
+</ol>
+<div class="row">
+
+    <div class="col-md-10">
+        <h4>Gestion des attributs</h4>
+    </div>
+    <div class="col-md-2 text-right">
+        <a asp-action="Create" class="btn btn-default">Ajouter</a>
+    </div>
+    <div class="col-md-12">
+        <hr>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.CVar)
+            </th>
+            <th class="col-md-5">
+                @Html.DisplayNameFor(model => model.Tooltip)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.AttributeCategory)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.AttributeType)
+            </th>
+            <th class="col-md-2 text-right"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CVar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tooltip)
+            </td>
+            <td class="col-md-1">
+                @Html.DisplayFor(modelItem => item.AttributeCategory.Name)
+            </td>
+            <td class="col-md-1">
+                @Html.DisplayFor(modelItem => item.AttributeType.Name)
+            </td>
+            <td class="col-md-2 text-right">
+                <a asp-action="Edit" asp-route-id="@item.AttributeId">Modifier</a> |
+                <a asp-action="Delete" asp-route-id="@item.AttributeId">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

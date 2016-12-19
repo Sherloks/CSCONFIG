@@ -1,0 +1,66 @@
+@model Data.Models.Attribute
+
+@{
+    ViewData["Title"] = "Gestion des attributs";
+}
+
+<ol class="breadcrumb">
+    <li><a href="#">Administration</a></li>
+    <li><a asp-action="Index">Gestion des attributs</a></li>
+    <li class="active">Supprimer</li>
+</ol>
+
+<h4>Êtes-vous sûr de vouloir supprimer cet attribut?</h4>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CVar)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CVar)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tooltip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tooltip)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.View)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.View)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ViewConfig)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ViewConfig)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AttributeCategory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AttributeCategory.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AttributeType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AttributeType.AttributeTypeId)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" />
+        </div>
+    </form>
+</div>

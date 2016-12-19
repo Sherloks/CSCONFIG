@@ -1,0 +1,36 @@
+﻿@model Data.Models.AttributeCategory
+
+@{
+    ViewData["Title"] = "Gestion des catégories d'attributs";
+}
+
+<ol class="breadcrumb">
+    <li><a href="#">Administration</a></li>
+    <li><a asp-action="Index">Gestion des catégories d'attributs</a></li>
+    <li class="active">Modifier</li>
+</ol>
+
+<h4>Êtes-vous sûr de vouloir supprimer cette catégorie ?</h4>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default">
+        </div>
+    </form>
+</div>

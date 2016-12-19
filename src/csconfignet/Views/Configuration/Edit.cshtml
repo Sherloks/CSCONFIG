@@ -1,0 +1,157 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Data.Models
+
+@model Data.Models.Configuration
+
+<ol class="breadcrumb">
+    <li><a asp-action="Index">Mes configurations</a></li>
+    <li class="active">Nouvelle configuration</li>
+</ol>
+
+<form asp-action="Edit" class="form-horizontal">
+    <input type="hidden" asp-for="ConfigurationId" />
+    <div class="row">
+
+        <div class="col-md-10">
+            <h4>Modifier</h4>
+        </div>
+        <div class="col-md-2 text-right">
+            <input type="submit" value="Sauvegarder" class="btn btn-default">
+        </div>
+        <div class="col-md-12">
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <textarea asp-for="Description" rows="5" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Version" class="col-md-2 control-label"></label>
+            <div class="col-md-1">
+                <input asp-for="Version" class="form-control" />
+                <span asp-validation-for="Version" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel with-nav-tabs panel-default">
+        <div class="panel-heading">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#test">Test</a></li>
+                <li><a data-toggle="tab" href="#audio">Audio</a></li>
+                <li><a data-toggle="tab" href="#rate">Rate</a></li>
+                <li><a data-toggle="tab" href="#video">Video</a></li>
+                <li><a data-toggle="tab" href="#mouse">Mouse</a></li>
+                <li><a data-toggle="tab" href="#misc">Misc</a></li>
+                <li><a data-toggle="tab" href="#hud">HUD</a></li>
+                <li><a data-toggle="tab" href="#radar">Radar</a></li>
+                <li><a data-toggle="tab" href="#keybind">Keybind</a></li>
+                <li><a data-toggle="tab" href="#crosshair">Crosshair</a></li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <div class="tab-content">
+
+                <div id="test" class="tab-pane fade in active">
+                    <div class="row">
+                        <div class="form-horizontal">
+
+                            @for (int i = 0; i < Model.ConfigurationAttributes.Count; i++)
+                            {
+
+                                if (Model.ConfigurationAttributes[i].Attribute.View != null)
+                                {
+
+                                    //@Html.EditorFor(Model => Model.Configurations[i])
+                                    //@Html.Partial(Model.Configurations[i].Attribute.View, Model.Configurations[i])
+                                }
+                                else
+                                {
+                                    switch (Model.ConfigurationAttributes[i].Attribute.AttributeType.Name)
+                                    {
+                                        case "Boolean":
+
+                                            <input asp-for="@(Model.ConfigurationAttributes[i].AttributeId)" value="@(Model.ConfigurationAttributes[i].Attribute.AttributeId)" type="hidden" />
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@(Model.ConfigurationAttributes[i].Attribute.Tooltip)"></span> @(Model.ConfigurationAttributes[i].Attribute.Name)</label>
+                                                <div class="col-md-1">
+                                                    <div class="material-switch form-control-switch">
+                                                        <input asp-for="@(Model.ConfigurationAttributes[i].Value)" type="checkbox" class="form-control" />
+                                                        <label asp-for="@(Model.ConfigurationAttributes[i].Value)" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            break;
+
+                                        case "String":
+
+                                            <input asp-for="@(Model.ConfigurationAttributes[i].AttributeId)" value="@(Model.ConfigurationAttributes[i].Attribute.AttributeId)" type="hidden" />
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@(Model.ConfigurationAttributes[i].Attribute.Tooltip)"></span> @(Model.ConfigurationAttributes[i].Attribute.Name)</label>
+                                                <div class="col-md-7">
+                                                    <input asp-for="@(Model.ConfigurationAttributes[i].Value)" type="text" class="form-control" />
+                                                </div>
+                                            </div>
+
+                                            break;
+                                        case "Number":
+
+                                            <input asp-for="@(Model.ConfigurationAttributes[i].AttributeId)" value="@(Model.ConfigurationAttributes[i].Attribute.AttributeId)" type="hidden" />
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@(Model.ConfigurationAttributes[i].Attribute.Tooltip)"></span> @(Model.ConfigurationAttributes[i].Attribute.Name)</label>
+                                                <div class="col-md-6">
+                                                    <input class="form-control" type="range" min="0" max="1.0" step="0.01" />
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input asp-for="@(Model.ConfigurationAttributes[i].Value)" class="form-control form-control-inline" type="number" min="0.0" max="1.0" step="0.01" />
+                                                </div>
+
+                                            </div>
+                                            break;
+
+                                        default:
+                                            break;
+                                    }
+                                }
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+                @*@await Html.PartialAsync("_Audio")
+                    @await Html.PartialAsync("_Rate")
+                    @await Html.PartialAsync("_Video")
+                    @await Html.PartialAsync("_Mouse")
+                    @await Html.PartialAsync("_Misc")
+                    @await Html.PartialAsync("_HUD")
+                    @await Html.PartialAsync("_Radar")
+                    @await Html.PartialAsync("_Keybind")
+                    @await Html.PartialAsync("_Crosshair")*@
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

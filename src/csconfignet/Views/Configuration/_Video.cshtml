@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+
+<div id="video" class="tab-pane fade">
+    <div class="row">
+        <div class="form-horizontal">
+
+            <div class="form-group">
+
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Monitor Gamma Tooltip"]"></span> @Localizer["Monitor Gamma"]</label>
+                <div class="col-md-6">
+                    <input id="monitor-gamma-slider" class="form-control" type="range" min="1.6" max="2.60" step="0.1" />
+                </div>
+                <div class="col-md-1">
+                    <input id="monitor-gamma-input" class="form-control form-control-inline" type="number" min="1.6" max="2.60" step="0.1" />
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Max FPS Tooltip"]"></span> @Localizer["Max FPS"]</label>
+                <div class="col-md-6">
+                    <input id="max-fps-slider" class="form-control" type="range" min="0" max="999" step="1" />
+                </div>
+                <div class="col-md-1">
+                    <input id="max-fps-input" class="form-control form-control-inline" type="number" min="0" max="999" step="1" />
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Max FPS Menu Tooltip"]"></span> @Localizer["Max FPS Menu"]</label>
+                <div class="col-md-6">
+                    <input id="max-fps-menu-slider" class="form-control" type="range" min="0" max="999" step="1" />
+                </div>
+                <div class="col-md-1">
+                    <input id="max-fps-menu-input" class="form-control form-control-inline" type="number" min="0" max="999" step="1" />
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Dynamic Shadows Tooltip"]"></span> @Localizer["Dynamic Shadows"]</label>
+                <div class="col-md-1">
+                    <div class="material-switch form-control-switch">
+                        <input id="dynamic-shadows-switch" type="checkbox" />
+                        <label for="dynamic-shadows-switch" class="label-default"></label>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Draw Tracers in First Person Tooltip"]"></span> @Localizer["Draw Tracers in First Person"]</label>
+                <div class="col-md-1">
+                    <div class="material-switch form-control-switch">
+                        <input id="draw-tracers-first-person-switch" type="checkbox" />
+                        <label for="draw-tracers-first-person-switch" class="label-default"></label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

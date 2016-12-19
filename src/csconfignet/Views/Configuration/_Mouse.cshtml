@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+<div id="mouse" class="tab-pane fade">
+    <div class="row">
+        <div class="form-horizontal">
+
+            <div class="form-group">
+
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Sensitivity Tooltip"]"></span> @Localizer["Sensitivity"]</label>
+                <div class="col-md-6">
+                    <input id="sensitivity-slider" class="form-control" type="range" min="0" max="20" step="0.1" />
+                </div>
+                <div class="col-md-1">
+                    <input id="sensitivity-input" class="form-control form-control-inline" type="number" min="0" max="20" step="0.1" />
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Zoom Sensitivity Tooltip"]"></span> @Localizer["Zoom Sensitivity"]</label>
+                <div class="col-md-6">
+                    <input id="zoom-sensitivity-slider" class="form-control" type="range" min="0" max="20" step="0.1" />
+                </div>
+                <div class="col-md-1">
+                    <input id="zoom-sensitivity-input" class="form-control form-control-inline" type="number" min="0" max="20" step="0.1" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label"><span href="#" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="" data-original-title="@Localizer["Raw Input Tooltip"]"></span> @Localizer["Raw Input"]</label>
+                <div class="col-md-1">
+                    <div class="material-switch form-control-switch">
+                        <input id="raw-input-switch" type="checkbox" />
+                        <label for="raw-input-switch" class="label-default"></label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
